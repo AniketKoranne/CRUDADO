@@ -88,7 +88,7 @@
             <div class="card m-4">
                 <div class="card-body">
                     <div class="row mt-2">
-                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-striped" ></asp:GridView>
+                        <asp:GridView ID="GridView1" runat="server" CssClass="table table-hover table-striped" AllowPaging="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoPostBack="true"></asp:GridView>
                     </div>
                 </div>
             </div>

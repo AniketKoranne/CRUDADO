@@ -99,5 +99,68 @@ namespace CRUDADO
                 return false;
             }
         }
+
+        public bool UpdateStudent(int ID, string firstName, string middleName, string lastName, string address, string phone)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("UpdateStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters for the stored procedure
+                        command.Parameters.AddWithValue("@ID", ID);
+                        command.Parameters.AddWithValue("@FirstName", firstName);
+                        command.Parameters.AddWithValue("@MiddleName", middleName);
+                        command.Parameters.AddWithValue("@LastName", lastName);
+                        command.Parameters.AddWithValue("@Address", address);
+                        command.Parameters.AddWithValue("@Phone", phone);
+
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Check if the insertion was successful
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception or log error
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+        }
+
+        public bool DeleteStudent(int ID)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("DeleteStudent", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters for the stored procedure
+                        command.Parameters.AddWithValue("@ID", ID);
+                        
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Check if the insertion was successful
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exception or log error
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+        }
     }
 }
