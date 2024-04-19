@@ -80,7 +80,7 @@
             <div class="row m-5">
                 <div class="col-md-4">
                     <asp:Button ID="btnSelect" runat="server" CssClass="btn btn-primary" Text="Select" OnClick="btnSelect_Click" />
-                    <asp:Button ID="btnInsert" runat="server" CssClass="btn btn-secondary" Text="Insert" OnClick="btnInsert_Click" />
+                    <asp:Button ID="btnInsert" runat="server" CssClass="btn btn-secondary" Text="Save" OnClick="btnInsert_Click" />
                     <asp:Button ID="btnUpdate" runat="server" CssClass="btn btn-warning" Text="Update" OnClick="btnUpdate_Click" />
                     <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-dark" Text="Delete" OnClick="btnDelete_Click" />
                 </div>
