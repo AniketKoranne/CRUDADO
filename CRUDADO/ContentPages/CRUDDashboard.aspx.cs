@@ -16,7 +16,8 @@ namespace CRUDADO
         {                        
             if (!IsPostBack)
             {
-                txtSID.Text = goStudents.GetNextStudentId().ToString();
+                //txtSID.Text = goStudents.GetNextStudentId().ToString();
+                ClearPage();
                 BindGridView();
             }
         }
@@ -105,7 +106,7 @@ namespace CRUDADO
         {
             try
             {
-                ClearPage();
+                ClearPage();                
                 if (GridView1.Rows.Count > 0)
                 {
                     GridView1.AutoGenerateSelectButton = true;                    
@@ -132,12 +133,12 @@ namespace CRUDADO
 
                 if (success)
                 {
-                    // Display a success message using JavaScript
+                    // Display a success message using JavaScript                    
                     string script = "alert('Student record added successfully.');";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "SuccessMessage", script, true);
                     ClearPage();
-                    // Refresh GridView with updated data
-                    BindGridView();
+                    // Redirect to another page or the same page                    
+                    //Response.Redirect("CRUDDashboard.aspx");
                 }
                 else
                 {
@@ -169,12 +170,12 @@ namespace CRUDADO
 
                 if (success)
                 {
-                    // Display a success message using JavaScript
+                    // Display a success message using JavaScript                    
                     string script = "alert('Student record Updated successfully.');";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "SuccessMessage", script, true);
                     ClearPage();
                     // Refresh GridView with updated data
-                    BindGridView();
+                    //Response.Redirect("CRUDDashboard.aspx");
                 }
                 else
                 {
@@ -199,15 +200,15 @@ namespace CRUDADO
                 bool success = goStudents.DeleteStudent(Convert.ToInt32(txtSID.Text));
 
                 if (success)
-                {
-                    ClearPage();
-                    BindGridView();
+                {                    
+                    BindGridView();                    
                     // Display a success message using JavaScript
                     string script = "alert('Student record Deleted successfully.');";
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "SuccessMessage", script, true);
-                    
+                    ClearPage();
+                    BindGridView();
                     // Refresh GridView with updated data
-                    
+                    //Response.Redirect("CRUDDashboard.aspx");
                 }
                 else
                 {
